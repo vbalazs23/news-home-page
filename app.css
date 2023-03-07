@@ -1,0 +1,316 @@
+
+/* General resets and properties */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --main-text-color: hsl(240, 100%, 5%);
+    --secondary-text-color: hsl(236, 13%, 42%);
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+}
+
+/* Wrapping the whole content around */
+
+.wrapper-container {
+    margin: 3em auto 5em auto;
+    max-width: 75vw;
+}
+
+/* Navbar styles */
+
+.navbar {
+    display: flex;
+    position: sticky;
+    top: 0;
+    padding: 2em 0 1em 0;
+    background-color: white;
+    margin-bottom: 2em;
+    justify-content: space-between;
+}
+
+.nav-list {
+    display: flex;
+    width: 40em;
+    list-style-type: none;
+    justify-content: space-between;
+    
+}
+
+.nav-link a {
+    text-decoration: none;
+    color: var(--secondary-text-color);
+    font-size: 1.3em;
+}
+
+.nav-link a:hover {
+    color: hsl(5, 85%, 63%);
+}
+
+/* The first grid section (ends before the bottom three columns/article cards) */
+
+.main-articles {
+    display: grid;
+    gap: 2em;
+    margin-bottom: 8em;
+}
+
+.grid-main-image {
+    background-image: url("assets/images/image-web-3-desktop.jpg");
+    background-position: center;
+    background-size: cover;
+    height: 30em;
+}
+
+.grid-new {
+    background-color:  hsl(240, 100%, 5%);
+    
+    padding: 2em 3em;
+}
+
+.grid-articles {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    min-height: 100%;
+    letter-spacing: 1px;
+}
+
+.column-header {
+    margin-bottom: 1.5em;
+}
+
+.column-header h1 {
+    color: hsl(35, 77%, 62%);
+    font-size: 3em;
+    font-weight: 800;
+}
+
+.column-news {
+    border-bottom: 1px solid hsla(36, 100%, 99%, 0.692);
+}
+
+.column-news:last-child {
+    border-bottom: none;
+    margin-bottom: 2em;
+}
+
+.column-news h2 {
+   margin-bottom: 1em;
+   font-weight: 700;
+}
+
+.column-news a {
+    color: hsl(36, 100%, 99%);
+    text-decoration: none;
+}
+
+.column-news a:hover {
+    color: hsl(35, 77%, 62%);
+}
+
+.column-news p {
+    color: hsla(36, 100%, 99%, 0.692);
+    margin-bottom: 3em;
+    line-height: 2;
+}
+
+.grid-header {
+    padding: 0 4em 0 0;
+}
+
+.grid-header h1 {
+    color: var(--main-text-color);
+    font-size: 4.5em;
+    font-weight: 800;
+    letter-spacing: 1px;
+    line-height: 1;
+}
+
+.grid-preview {
+    padding: 0 2em 0 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.grid-preview-text p {
+    line-height: 1.5;
+    font-size: 1.2em;
+    color: var(--secondary-text-color);
+}
+
+.main-article-button {
+    margin-bottom: 0em;
+    padding: 0.7em 1.5em;
+    color: hsl(36, 100%, 99%);
+    font-weight: 700;
+    font-size: 1.15em;
+    letter-spacing: 3px;
+    background-color: hsl(5, 85%, 63%);
+    text-decoration: none;
+}
+
+.main-article-button:hover {
+    background-color: var(--main-text-color);
+}
+
+/* The second grid section (bottom three columns) */
+
+.article-suggestions {
+    display: grid;
+    grid-template-columns: 
+    repeat(3, 1fr);
+    gap: 2em;
+}
+
+.article-card {
+    display: flex;
+}
+
+.card-img img {
+    max-height: 14em;
+    max-width: 9em;
+    margin-right: 3em;
+}
+
+.card-text h1 {
+    font-size: 2.5em;
+    font-weight: 800;
+    color: hsla(236, 13%, 42%, 0.678);
+    margin-bottom: 0.5em;
+}
+
+.card-text h2 {
+    margin-bottom: 0.3em;
+}
+
+.card-text a {
+    color: hsl(240, 100%, 5%);
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.card-text a:hover {
+    color: hsl(5, 85%, 63%);
+}
+
+.card-text p {
+    line-height: 2;
+    color: var(--secondary-text-color);
+}
+
+/* Classes for the mobile navbar to hide/show what it has to on click */
+
+.hidden {
+    display: none !important;
+}
+
+.show {
+    display: flex !important;
+}
+
+/* Responsive design */
+
+@media (max-width: 1600px) {
+    .grid-header {
+        padding: 0;
+    }
+
+    .grid-header h1 {
+        font-size: 4em;
+    }
+}
+
+@media (max-width: 1400px) {
+    .wrapper-container {
+        max-width: 85vw;
+    }
+}
+
+@media (max-width: 1200px) {
+    .wrapper-container {
+        max-width: 91vw;
+    }
+}
+
+@media (min-width: 1000px) {
+    .main-articles {
+        grid-template-columns: 
+        repeat(3, 1fr);
+    }
+    .grid-span-2 {
+        grid-column: span 2;
+    }
+    .grid-new {
+        grid-column-start: 3;
+        grid-row-start: 1;
+        grid-row-end: 3;
+    }
+    .hamburger {
+        display: none;
+    }
+    .hamburger-close {
+        display: none;
+    }
+}
+
+@media (max-width: 999px) {
+    .wrapper-container {
+        margin: 0 auto;
+    }
+    .grid-new {
+        grid-row-start: 5;
+    }
+    .grid-preview-text p {
+        margin-bottom: 3em;
+    }
+    .article-suggestions {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .nav-list {
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        height: 100vh;
+        max-width: 53vw;
+        position: absolute;
+        top: 0;
+        left: 45%;
+        background-color: white;
+        box-shadow: -50vw 0 hsla(240, 100%, 5%, 0.466);
+    }
+    .nav-link {
+        margin-bottom: 3em;
+        margin-left: 3em;
+        font-weight: 800;
+    }
+    .hamburger-close {
+        z-index: 9999;
+    }
+    .hamburger,
+    .hamburger-close:hover {
+        cursor: pointer;
+    }
+}
+
+@media (max-width: 700px) {
+    .article-suggestions {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 484px) {
+    .nav-list {
+        left: 33%;
+        max-width: 62vw;
+    }
+}
+
